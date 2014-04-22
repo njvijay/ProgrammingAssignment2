@@ -1,13 +1,19 @@
 # title : R progamming Assignment 2
 # Author : Vijayakumar Jawaharlal
-
 # This is second programming assignment on R programming. This class is conducted by 
 # John Hopkins university via coursera. Intention of the this assignment is, working with
 # function. Additionally, cache the value of the matrix inverse so that when we need it again, 
 # it can be looked up in the cache rather than recomputed. 
 
-## makeCacheMatrix function is collection of getter setter functions to set and get
-# matrix and set and get matrix inverse
+
+## makeCacheMatrix - This function creates a special "matrix" object that can cache its inverse.
+## This is really a list containing a function to
+## set the value of the matrix
+## get the value of the matrix
+## set the value of the matrix inverse
+## get the value of the matrix inverse
+## Thus makeCacheMatrix function is collection of getter setter functions to set and get
+## matrix and set and get matrix inverse
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
@@ -44,8 +50,10 @@ cacheSolve <- function(x, ...) {
     data <- x$get()
     m <- solve(data, ...)
     x$setinv(m)
+    
+    ## Return a matrix that is the inverse of 'x'
     m
-        ## Return a matrix that is the inverse of 'x'
+        
 }
 
 ## Here is how above functions are put to use
